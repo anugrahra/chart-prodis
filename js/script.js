@@ -16,6 +16,7 @@ function showGraph() {
         let kaporit = [];
         let dosisPac = [];
         let dosisKaporit = [];
+        let kebocoran = [];
 
         for (let i in data) {
           bulan.push(data[i].bulan);
@@ -27,6 +28,7 @@ function showGraph() {
           kaporit.push(data[i].kaporit);
           dosisPac.push(data[i].dosis_pac);
           dosisKaporit.push(data[i].dosis_kaporit);
+          kebocoran.push(data[i].kebocoran);
         }
 
         let chartdata = {
@@ -108,6 +110,19 @@ function showGraph() {
           }]
         };
 
+        let chartdataBocor = {
+          labels: bulan,
+          datasets: [{
+            label: 'Kebocoran (%)',
+            backgroundColor: '#FF7F00',
+            borderColor: '#FF7F00',
+            hoverBackgroundColor: '#CCCCCC',
+            hoverBorderColor: '#666666',
+            fill: false,
+            data: kebocoran
+          }]
+        };
+
         let graphTarget = $("#graphCanvas");
         let lineGraph = new Chart(graphTarget, {
           type: 'line',
@@ -126,6 +141,31 @@ function showGraph() {
           data: chartdataDosis
         });
 
+        let graphTargetBocor = $("#graphCanvasBocor");
+        let lineGraphDosis = new Chart(graphTargetBocor, {
+          type: 'line',
+          data: chartdataBocor
+        });
+
       });
   }
 }
+
+// smooth scrolling
+$(document).ready(function(){
+	$("a").on('click' , function(event){
+		if (this.hash !== ""){
+			event.preventDefault();
+
+			var hash = this.hash;
+
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+        }, 
+
+        1500, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
