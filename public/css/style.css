@@ -40,8 +40,40 @@ footer {
   background-color: lightgrey;
 }
 
+table,
+tr,
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+table thead {
+  background-color: #c0c0c0;
+}
+
+td.align-right {
+  text-align: right;
+}
+
 .canvas-container {
   width: 83%;
+}
+
+.gotop {
+  position: fixed;
+  bottom: 25px;
+  right: 100px;
+  padding: 1px;
+  border: 1px solid grey;
+  background-color: white;
+  font-size: 3em;
+}
+
+.gotop a {
+  text-decoration: none;
+  color: black;
 }
 
 @media screen and (max-width: 880px) {
