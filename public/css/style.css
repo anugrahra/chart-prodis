@@ -76,6 +76,51 @@ td.align-right {
   color: black;
 }
 
+.redalert {
+  background-color: #ff0000;
+}
+
+.bluealert {
+  background-color: #87cefa;
+}
+
+.divcolumnlist {
+  float: left;
+  width: 50%;
+  margin-bottom: 5px;
+}
+
+.kettext {
+  float: left;
+  padding: 2px;
+}
+
+.bluesquare {
+  background: #87cefa;
+  width: 120px;
+  height: 25px;
+  border: 1px solid black;
+  float: left;
+}
+
+.bluesquare p {
+  color: #000;
+  padding: 2px;
+}
+
+.redsquare {
+  background: #ff0000;
+  width: 120px;
+  height: 25px;
+  border: 1px solid black;
+  float: left;
+}
+
+.redsquare p {
+  color: #000;
+  padding: 2px;
+}
+
 @media screen and (max-width: 880px) {
   section {
     padding: 0;

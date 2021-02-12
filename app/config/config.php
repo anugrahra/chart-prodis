@@ -1,2 +1,2 @@
 <?php
-define('BASEURL', 'http://localhost/chart-prodis-v02');
+define('BASEURL', 'http://localhost/chart-prodis');

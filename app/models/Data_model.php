@@ -32,6 +32,26 @@ class Data_model
     return $this->db->resultSet();
   }
 
+  public function maxminBocor()
+  {
+    $this->db->query("SELECT MAX(kebocoran) AS maxBocor, MIN(kebocoran) AS minBocor FROM " . $this->table . " 
+    WHERE tahun = YEAR(CURRENT_DATE())");
+
+    return $this->db->single();
+  }
+
+  public function maxminBocorByTahun($data)
+  {
+    $query = "SELECT MAX(kebocoran) AS maxBocor, MIN(kebocoran) AS minBocor FROM " . $this->table . " 
+    WHERE tahun = :tahun";
+
+    $this->db->query($query);
+    $this->db->bind('tahun', $data['tahun']);
+    $this->db->execute();
+
+    return $this->db->single();
+  }
+
   public function input($data)
   {
     $query  = "INSERT INTO " . $this->table . " VALUES ('', :bulan, :tahun, :final, :status, :pemair, :jumlah_produksi, :jumlah_distribusi, :nrw, :jam_operasi, :debit, :pac, :kaporit, :dosis_pac, :dosis_kaporit, :kebocoran)";

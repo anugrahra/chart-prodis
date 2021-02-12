@@ -5,7 +5,7 @@ $(document).ready(function() {
 
 function showGraph() {
   {
-    $.post("http://localhost/chart-prodis-v02/data",
+    $.post("http://localhost/chart-prodis/data",
     function(data) {
   
       let bulan = [];

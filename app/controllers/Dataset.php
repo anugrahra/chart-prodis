@@ -8,10 +8,12 @@ class Dataset extends Controller
     $data['header'] = 'LIST DATA';
     $data['prodis'] = $this->model('Data_model')->chartData();
     $data['tahun'] = date("Y");
+    $data['maxminbocor'] = $this->model('Data_model')->maxminBocor();
 
     if (isset($_POST['tahun'])) {
       $data['prodis'] = $this->model('Data_model')->showChartDataByTahun($_POST);
       $data['tahun'] = $_POST['tahun'];
+      $data['maxminbocor'] = $this->model('Data_model')->maxminBocorByTahun($_POST);
     }
 
     $this->view('templates/header', $data);
